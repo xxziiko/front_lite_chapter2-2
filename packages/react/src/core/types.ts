@@ -55,7 +55,9 @@ export interface HooksContext {
 }
 
 export interface EffectsContext {
-  queue: Array<{ path: string; cursor: number }>;
+  queue: Array<
+    { path: string; cursor: number; cleanup: () => void } | { path: string; cursor: number; effect: () => void }
+  >;
 }
 
 export interface Context {
